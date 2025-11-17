@@ -2,6 +2,7 @@
 //Author: Stephen Gillie
 //Created 06/22/2025
 //Updated 10/28/2025
+// GT App Framework 1.1
 //Alcove was the new finditem.
 
 
@@ -32,7 +33,7 @@ using System.Web.Script.Serialization;
 namespace ShopBotNamespace {
     public class MoarShopBot : Form {
 //{ Ints
-        public int build = 1554;//Get-RebuildCsharpApp MoarShopBot
+        public int build = 1555;//Get-RebuildCsharpApp MoarShopBot
 		public string appName = "MoarShopBot";
 		public string StoreName = "Not Loaded";
 		public string StoreCoords = "Not Loaded";
@@ -400,6 +401,7 @@ public enum EventNames
 			Data = Data.Where(d => !d.Contains("shop is now")).ToList();
 			Data = Data.Where(d => !d.Contains("is nothing in your")).ToList();
 			Data = Data.Where(d => !d.Contains("is already")).ToList();
+			Data = Data.Where(d => !d.Contains("input an integer")).ToList();
 			Data = Data.Where(d => !d.Contains("on data from")).ToList();
 			Data = Data.Where(d => !d.Contains("result in")).ToList();
 			Data = Data.Where(d => !d.Contains("| Item:")).ToList();
