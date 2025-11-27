@@ -33,7 +33,7 @@ using System.Web.Script.Serialization;
 namespace ShopBotNamespace {
     public class MoarShopBot : Form {
 //{ Ints
-        public int build = 1555;//Get-RebuildCsharpApp MoarShopBot
+        public int build = 1556;//Get-RebuildCsharpApp MoarShopBot
 		public string appName = "MoarShopBot";
 		public string StoreName = "Not Loaded";
 		public string StoreCoords = "Not Loaded";
@@ -391,21 +391,23 @@ public enum EventNames
 					fileString = FileStreamError.Message + "; " + GetContentError.Message;
 				}
 			}
-			Data = Data.Where(d => !d.Contains("Enter all in chat")).ToList();
-			Data = Data.Where(d => !d.Contains("out of space")).ToList();
-			Data = Data.Where(d => !d.Contains("how many you wish")).ToList();
-			Data = Data.Where(d => !d.Contains("Shop purchase cancelled")).ToList();
-			Data = Data.Where(d => !d.Contains("get it refilled")).ToList();
-			Data = Data.Where(d => !d.Contains("new price of the")).ToList();
-			Data = Data.Where(d => !d.Contains("look at one")).ToList();
-			Data = Data.Where(d => !d.Contains("shop is now")).ToList();
-			Data = Data.Where(d => !d.Contains("is nothing in your")).ToList();
-			Data = Data.Where(d => !d.Contains("is already")).ToList();
-			Data = Data.Where(d => !d.Contains("input an integer")).ToList();
-			Data = Data.Where(d => !d.Contains("on data from")).ToList();
-			Data = Data.Where(d => !d.Contains("result in")).ToList();
 			Data = Data.Where(d => !d.Contains("| Item:")).ToList();
+			Data = Data.Where(d => !d.Contains("enough space")).ToList(); //Not enough space around the shop to place the info sign.
+			Data = Data.Where(d => !d.Contains("Enter all in chat")).ToList();
+			Data = Data.Where(d => !d.Contains("find a shop")).ToList(); //Couldn't find a shop! Make sure you look at one.
+			Data = Data.Where(d => !d.Contains("get it refilled")).ToList(); 
+			Data = Data.Where(d => !d.Contains("how many you wish")).ToList();
+			Data = Data.Where(d => !d.Contains("input an integer")).ToList();
+			Data = Data.Where(d => !d.Contains("is already")).ToList();
+			Data = Data.Where(d => !d.Contains("is nothing in your")).ToList();
+			Data = Data.Where(d => !d.Contains("look at one")).ToList();
+			Data = Data.Where(d => !d.Contains("new price of the")).ToList();
+			Data = Data.Where(d => !d.Contains("on data from")).ToList();
+			Data = Data.Where(d => !d.Contains("out of space")).ToList();
 			Data = Data.Where(d => !d.Contains("Price per")).ToList();
+			Data = Data.Where(d => !d.Contains("result in")).ToList();
+			Data = Data.Where(d => !d.Contains("shop is now")).ToList();
+			Data = Data.Where(d => !d.Contains("Shop purchase cancelled")).ToList();
 			Data = Data.Where(d => !d.Contains("transaction limit")).ToList();
 
 			//Data = Data.Where(x => x.notmatch("");
