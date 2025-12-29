@@ -33,7 +33,7 @@ using System.Web.Script.Serialization;
 namespace ShopBotNamespace {
     public class MoarShopBot : Form {
 //{ Ints
-        public int build = 1557;//Get-RebuildCsharpApp MoarShopBot
+        public int build = 1559;//Get-RebuildCsharpApp MoarShopBot
 		public string appName = "MoarShopBot";
 		public string StoreName = "Not Loaded";
 		public string StoreCoords = "Not Loaded";
@@ -397,7 +397,7 @@ public enum EventNames
 			Data = Data.Where(d => !d.Contains("Enter all in chat")).ToList();
 			Data = Data.Where(d => !d.Contains("find a shop")).ToList(); //Couldn't find a shop! Make sure you look at one.
 			Data = Data.Where(d => !d.Contains("get it refilled")).ToList(); 
-			Data = Data.Where(d => !d.Contains("how many you wish")).ToList();
+			Data = Data.Where(d => !d.Contains("how many you wish")).ToList();//Enter in chat how many you wish to BUY.
 			Data = Data.Where(d => !d.Contains("input an integer")).ToList();
 			Data = Data.Where(d => !d.Contains("is already")).ToList();//This is already a shop.
 			Data = Data.Where(d => !d.Contains("is nothing in your")).ToList();
@@ -407,6 +407,8 @@ public enum EventNames
 			Data = Data.Where(d => !d.Contains("out of space")).ToList();
 			Data = Data.Where(d => !d.Contains("Price per")).ToList();
 			Data = Data.Where(d => !d.Contains("result in")).ToList();
+			Data = Data.Where(d => !d.Contains("successfully created")).ToList();//Shop successfully created.
+			Data = Data.Where(d => !d.Contains("shop display")).ToList();
 			Data = Data.Where(d => !d.Contains("shop is now")).ToList();
 			Data = Data.Where(d => !d.Contains("Shop purchase cancelled")).ToList();
 			Data = Data.Where(d => !d.Contains("transaction limit")).ToList();
