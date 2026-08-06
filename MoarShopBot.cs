@@ -33,7 +33,7 @@ using System.Web.Script.Serialization;
 namespace ShopBotNamespace {
     public class MoarShopBot : Form {
 //{ Ints
-        public int build = 1559;//Get-RebuildCsharpApp MoarShopBot
+        public int build = 1561;//Get-RebuildCsharpApp MoarShopBot
 		public string appName = "MoarShopBot";
 		public string StoreName = "Not Loaded";
 		public string StoreCoords = "Not Loaded";
@@ -113,7 +113,7 @@ public enum EventNames
 		public bool debuggingView = false;
 		public string FullText = "is now full";//[05:33:18] [Render thread/INFO]: [System] [CHAT] SHOPS ▶ Your shop at 15274, 66, 20463 is now full.
 		public string SellText = "to your shop";//[05:40:12] [Render thread/INFO]: [System] [CHAT] SHOPS ▶ kota490 sold 1728 Sea Lantern to your shop {3}.
-		public string BuyText = "from your shop";//[05:47:12] [Render thread/INFO]: [System] [CHAT] SHOPS ▶ _Blackjack29313 purchased 2 Grindstone from your shop and you earned $9.50 ($0.50 in taxes).
+		public string BuyText = "from your shop";//[05:47:12] [Render thread/INFO]: [System] [CHAT] SHOPS ▶ _Blackjack29313 purchased 2 Grindstone from your shop $9.50 ($0.50 in taxes).
 		public string EmptyText = "has run out of";//[06:07:40] [Rend
 		//public void OldDate = get-date -f dd
 
@@ -392,7 +392,9 @@ public enum EventNames
 				}
 			}
 			Data = Data.Where(d => !d.Contains("| Item:")).ToList();
-			Data = Data.Where(d => !d.Contains("because it is frozen")).ToList(); //Not enough space around the shop to place the info sign.
+			Data = Data.Where(d => !d.Contains("already a shop")).ToList(); //This is already a shop.
+			Data = Data.Where(d => !d.Contains("Could not create")).ToList(); //Could not create a shop
+			Data = Data.Where(d => !d.Contains("because it is frozen")).ToList(); //
 			Data = Data.Where(d => !d.Contains("enough space")).ToList(); //Not enough space around the shop to place the info sign.
 			Data = Data.Where(d => !d.Contains("Enter all in chat")).ToList();
 			Data = Data.Where(d => !d.Contains("find a shop")).ToList(); //Couldn't find a shop! Make sure you look at one.
@@ -450,7 +452,7 @@ public enum EventNames
 						stockitem.ItemName = String.Join(" ", SplitItem[2].Split(' ').Skip(2).Take(9));
 						// outBox.Text = stockitem.Timestamp + " - " + stockitem.Event + " - " + stockitem.ItemName + " - " + Environment.NewLine + outBox.Text;
 		            } else if (Item.Contains("from your shop")){
-						string[] SplitItem = Item.Replace("]",",").Replace(" purchased ",", ").Replace(" from your shop and you earned ",", ").Replace("(","").Split(',');
+						string[] SplitItem = Item.Replace("]",",").Replace(" purchased ",", ").Replace(" from your shop ",", ").Replace("(","").Split(',');
 						// outBox.Text = "(GetShopData) SplitItem " + serializer.Serialize(SplitItem) + Environment.NewLine + outBox.Text;
 						// outBox.Text = "(GetShopData) Item " + serializer.Serialize(Item) + Environment.NewLine + outBox.Text;
 						//05:47:12 _Blackjack29313, 2 Grindstone, 9.50 0.50 in taxes).
